@@ -14,7 +14,7 @@ export const Header = () => {
         <HeaderWrapper>
           <LinkWrapper>
             <NavLinkStyled to="/">Home</NavLinkStyled>
-            <NavLinkStyled to="/movies">Movies</NavLinkStyled>
+            <NavLinkStyled to="/courses">Courses</NavLinkStyled>
           </LinkWrapper>
         </HeaderWrapper>
       </NavBar>

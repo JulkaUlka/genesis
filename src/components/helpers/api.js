@@ -1,23 +1,23 @@
 import axios from 'axios';
 
-export class TheMovieDbAPI {
-  static BASE_URL = 'https://api.themoviedb.org/3';
-  static API_KEY = '1deae1a36202e3ac8c29219a3d453e0f';
-  static IMG_URL = 'https://image.tmdb.org/t/p/w500';
+export class CoursesAPI {
+  static BASE_URL = 'https://api.wisey.app/api/v1/';
+  static TOKEN =
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJlZDI3NjMxYS0wNGQ2LTRlYmMtYTI1Ny00YzdhODg0NWMyNWUiLCJwbGF0Zm9ybSI6InN1YnNjcmlwdGlvbnMiLCJpYXQiOjE2Nzg5Njg5NzksImV4cCI6MTY3OTg2ODk3OX0.AV8Ud0Crrxih8l11kAnjwp_wGOHwdkXPwMxYFSB7W8s';
 
   constructor() {
     this.page = 1;
     this.query = null;
-    this.per_page = 20;
+    this.per_page = 10;
   }
 
-  async getPopularFilms(pageNumber) {
+  async getCourses(pageNumber) {
     this.page = pageNumber;
     const response = await axios.get(
-      `${TheMovieDbAPI.BASE_URL}/trending/movie/week`,
+      `${CoursesAPI.BASE_URL}core/preview-courses`,
       {
         params: {
-          api_key: TheMovieDbAPI.API_KEY,
+          token: CoursesAPI.TOKEN,
           page: this.page,
         },
       }
@@ -26,59 +26,16 @@ export class TheMovieDbAPI {
     return response;
   }
 
-  async fetchUniqFilms(query) {
-    const searchParams = {
-      params: {
-        language: 'en-US',
-        page: this.page,
-        query: this.query,
-        api_key: TheMovieDbAPI.API_KEY,
-      },
-    };
-
+  async getCourseInfo(id) {
     const response = await axios.get(
-      `${TheMovieDbAPI.BASE_URL}/search/movie`,
-      searchParams
-    );
-
-    return response;
-  }
-
-  async getMovieInfoById(id) {
-    const response = await axios.get(`${TheMovieDbAPI.BASE_URL}/movie/${id}?`, {
-      params: {
-        api_key: TheMovieDbAPI.API_KEY,
-      },
-    });
-
-    return response;
-  }
-
-  async getCastInfo(id) {
-    const response = await axios.get(
-      `${TheMovieDbAPI.BASE_URL}/movie/${id}/credits?`,
+      `${CoursesAPI.BASE_URL}core/preview-courses/${id}?`,
       {
         params: {
-          api_key: TheMovieDbAPI.API_KEY,
-          language: 'en-US',
+          token: CoursesAPI.TOKEN,
         },
       }
     );
 
-    return response;
-  }
-
-  async getReviews(id) {
-    const response = await axios.get(
-      `${TheMovieDbAPI.BASE_URL}/movie/${id}/reviews?`,
-      {
-        params: {
-          api_key: TheMovieDbAPI.API_KEY,
-          language: 'en-US',
-          page: this.page,
-        },
-      }
-    );
     return response;
   }
 }

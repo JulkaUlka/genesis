@@ -1,8 +1,8 @@
 {
-  "name": "goit-react-hw-05-movies",
+  "name": "genesis",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://JulkaUlka.github.io/goit-react-hw-05-movies/",
+  "homepage": "https://JulkaUlka.github.io/genesis/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
@@ -14,6 +14,7 @@
     "react-router-dom": "^6.8.1",
     "react-scripts": "5.0.1",
     "styled-components": "^5.3.6",
+    "video.js": "^8.0.4",
     "web-vitals": "^2.1.3"
   },
   "scripts": {
