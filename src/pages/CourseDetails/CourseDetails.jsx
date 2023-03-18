@@ -96,7 +96,7 @@ function CourseDetails() {
 
         <InfoBlock>
           <h1>{title}</h1>
-          <p>{description} %</p>
+          <p>{description}</p>
           <h3>Lessons: </h3>
           <List>
             {lessons.map(({ id, order, title, status }, index) => (
